@@ -12,7 +12,7 @@ app.listen(port,() =>{
 
 
 git init
-git add .
+git add README.md
 git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/Manilamagar/INC-Pustakalaya.git
