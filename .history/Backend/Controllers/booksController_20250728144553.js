@@ -1,0 +1,18 @@
+import db from '../config/db.js';
+ 
+export const getBooks = (req, res) => {
+    db.query('SELECT * FROM books', (err, results) => {
+        if (err) return res.json({error: err });
+        res.json(result);
+    });
+};
+
+
+export const addBooks = (req, res) => {
+    const { title, author, category, isbn, publishedDate } = req.body;
+    db.query('INSERT INTO books (title, author, category, isbn, publishedDate) VALUES (?, ?, ?, ?, ?)', 
+        [title, author, category, isbn, publishedDate], (err, result) => {
+        if (err) return res.json({error: err });
+        res.json({ message: 'Book added successfully', bookId: result.insertId });
+    });
+}
